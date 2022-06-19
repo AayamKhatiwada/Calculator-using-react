@@ -13,7 +13,7 @@ body{
 }
 
 .top-container{
-  padding: 10px 35%;
+  padding: 10px 30%;
 }
 
 .first-part{
@@ -33,21 +33,23 @@ body{
 }
 
 .bottom-container{
-  padding: 10px 35%;
+  padding: 10px 30%;
   display: flex;
   flex-direction: column;
 }
 
 .line{
-  padding: 4px;
+  padding-bottom: 4px;
   text-align: center;
 }
 
 button{
   padding: 15px 30px;
-  flex-grow: 1;
+  width:  100px;
+  height: 50px;
 }
 
 .span-two{
-  flex-shrink: 2;
+  width:  200px;
+  height: 50px;
 }
