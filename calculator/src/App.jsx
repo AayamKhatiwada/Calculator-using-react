@@ -20,6 +20,7 @@ function App() {
 
   return (
     <>
+    <h1>Calculator using react</h1>
     <div className="main">
       <div className='top-container'>
         <div className='first-part'><span>{count}</span></div>
