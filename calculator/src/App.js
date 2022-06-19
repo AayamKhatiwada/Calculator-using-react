@@ -2,166 +2,57 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const num = 0;
-  const [ count , change ] = useState(0);
+  const [ count , change ] = useState('');
+  const [ num , display ] = useState('');
 
-  function AC(){
+  function back(){
+      change(count => count = count.slice(0,-1))
+  }
+
+  function clear(){
     change(count => count = '')
+    display(num => num = '')
   }
 
-  function DEL(){
-    change('')
-  }
-
-  function one(){
-    if(count === 0 || count === ''){
-      change(count => count = '1')
-    }
-    else{
-      change(count => count = count + '1')      
-    }
-  }
-
-  function two(){
-    if(count === 0 || count === ''){
-      change(count => count = '2')
-    }
-    else{
-      change(count => count = count + '2')      
-    }
-  }
-
-  function three(){
-    if(count === 0 || count === ''){
-      change(count => count = '3')
-    }
-    else{
-      change(count => count = count + '3')      
-    }
-  }
-
-  function four(){
-    if(count === 0 || count === ''){
-      change(count => count = '4')
-    }
-    else{
-      change(count => count = count + '4')      
-    }
-  }
-
-  function five(){
-    if(count === 0 || count === ''){
-      change(count => count = '5')
-    }
-    else{
-      change(count => count = count + '5')      
-    }
-  }
-
-  function six(){
-    if(count === 0 || count === ''){
-      change(count => count = '6')
-    }
-    else{
-      change(count => count = count + '6')      
-    }
-  }
-
-  function seven(){
-    if(count === 0 || count === ''){
-      change(count => count = '7')
-    }
-    else{
-      change(count => count = count + '7')      
-    }
-  }
-
-  function eight(){
-    if(count === 0 || count === ''){
-      change(count => count = '8')
-    }
-    else{
-      change(count => count = count + '8')      
-    }
-  }
-
-  function nine(){
-    if(count === 0 || count === ''){
-      change(count => count = '9')
-    }
-    else{
-      change(count => count = count + '9')      
-    }
-  }
-
-  function zero(){
-    if(count === 0 || count === ''){
-      change(count => count = '0')
-    }
-    else{
-      change(count => count = count + '0')      
-    }
-  }
-
-  function add(){
-    change(count => count + '+')
-  }
-
-  function divide(){
-    change(count => count + '/')
-  }
-
-  function multiply(){
-    change(count => count + '*')
-  }
-
-  function subtract(){
-    change(count => count + '-')
-  }
-
-  function equal(){
-    change('')
-  }
-
-  function decima(){
-    change(count => count + '.')
+  function output(){
+    display(num => num = eval(count))
   }
 
   return (
     <>
     <div className="main">
       <div className='top-container'>
-        <div className='first-part'><span>{num}</span></div>
-        <div className='last-part'><span>{count}</span></div>
+        <div className='first-part'><span>{count}</span></div>
+        <div className='last-part'><span>{num}</span></div>
       </div>
       <div className='bottom-container'>
         <div className='line'>
-          <button className='span-two' onClick={AC}>AC</button>
-          <button onClick={DEL}>DEL</button>
-          <button onClick={divide}>/</button>
+          <button className='span-two' value='AC' onClick={clear}>AC</button>
+          <button value='DEL' onClick={back}>DEL</button>
+          <button value='/' onClick={(e) => change( count => count + e.target.value)}>/</button>
         </div>
         <div className='line'>
-          <button onClick={one}>1</button>
-          <button onClick={two}>2</button>
-          <button onClick={three}>3</button>
-          <button onClick={multiply}>*</button>
+          <button value='1' onClick={(e) => change( count => count + e.target.value)}>1</button>
+          <button value='2' onClick={(e) => change( count => count + e.target.value)}>2</button>
+          <button value='3' onClick={(e) => change( count => count + e.target.value)}>3</button>
+          <button value='*' onClick={(e) => change( count => count + e.target.value)}>*</button>
         </div>
         <div className='line'>
-          <button onClick={four}>4</button>
-          <button onClick={five}>5</button>
-          <button onClick={six}>6</button>
-          <button onClick={add}>+</button>
+          <button value='4' onClick={(e) => change( count => count + e.target.value)}>4</button>
+          <button value='5' onClick={(e) => change( count => count + e.target.value)}>5</button>
+          <button value='6' onClick={(e) => change( count => count + e.target.value)}>6</button>
+          <button value='+' onClick={(e) => change( count => count + e.target.value)}>+</button>
         </div>
         <div className='line'>
-          <button onClick={seven}>7</button>
-          <button onClick={eight}>8</button>
-          <button onClick={nine}>9</button>
-          <button onClick={subtract}>-</button>
+          <button value='7' onClick={(e) => change( count => count + e.target.value)}>7</button>
+          <button value='8' onClick={(e) => change( count => count + e.target.value)}>8</button>
+          <button value='9' onClick={(e) => change( count => count + e.target.value)}>9</button>
+          <button value='-' onClick={(e) => change( count => count + e.target.value)}>-</button>
         </div>
         <div className='line'>
-          <button onClick={decima}>.</button>
-          <button onClick={zero}>0</button>
-          <button className='span-two' onClick={equal}>=</button>
+          <button value='.' onClick={(e) => change( count => count + e.target.value)}>.</button>
+          <button value='0' onClick={(e) => change( count => count + e.target.value)}>0</button>
+          <button className='span-two' value='=' onClick={output}>=</button>
         </div>
       </div>
     </div>
