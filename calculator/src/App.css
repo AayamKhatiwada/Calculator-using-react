@@ -17,18 +17,18 @@ body{
 }
 
 .first-part{
-  padding: 10px 50px;
-  border-style: solid;
+  margin: 20px 50px;
+  padding: 20px 50px;
   border-width: 2px;
-  border-color: black;
+  background-color: antiquewhite;
   text-align: right;
 }
 
 .last-part{
-  padding: 20px 50px;
-  border-style: solid;
+  margin: 10px 50px;
+  padding: 10px 50px;
   border-width: 2px;
-  border-color: black;
+  background-color: antiquewhite;
   text-align: right;
 }
 
