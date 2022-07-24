@@ -1,19 +1,28 @@
+// importing css
 import './App.css';
 import { useState } from 'react';
 
 function App() {
+
+  // usestate  to display the typed number and symbols
   const [ count , change ] = useState('');
+
+  // usestate to display the output after equal to button is pressed
   const [ num , display ] = useState('');
 
+  // back() function to move a step back
   function back(){
+      // changing the count by slicing one letter
       change(count => count = count.slice(0,-1))
   }
 
+  // clear() function to clear the screen
   function clear(){
     change(count => count = '')
     display(num => num = '')
   }
 
+  // output() function to display the output
   function output(){
     display(num => num = eval(count))
   }
@@ -22,10 +31,12 @@ function App() {
     <>
     <h1>Calculator using react</h1>
     <div className="main">
+      {/* container to display the input and output screen */}
       <div className='top-container'>
         <div className='first-part'><span>{count}</span></div>
         <div className='last-part'><span>{num}</span></div>
       </div>
+      {/* container to display the numbers and symbols*/}
       <div className='bottom-container'>
         <div className='line'>
           <button className='span-two' value='AC' onClick={clear}>AC</button>
